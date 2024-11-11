@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On The Wall Of The Cabal</title>
+    <style>
+        /* Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /* Animated Gradient Background */
+        body {
+            background: linear-gradient(270deg, #111, #222, #111);
+            background-size: 600% 600%;
+            color: #f1f1f1;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            animation: backgroundAnimation 10s ease infinite;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Glowing Header Text */
+        header {
+            text-align: center;
+            padding: 2rem;
+            color: #fff;
+            font-size: 2rem;
+            text-shadow: 0 0 10px #ff4081, 0 0 20px #ff4081, 0 0 30px #ff4081;
+        }
+        header h1 { font-size: 3.5rem; }
+        header p { font-size: 1.2rem; }
+
+        /* Star Background */
+        #star-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: starTwinkle 3s infinite;
+        }
+        
+        /* Random star twinkle animation */
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        /* Intro Section Animation */
+        #intro {
+            font-size: 1.5rem;
+            animation: popIn 2s ease-out;
+        }
+
+        /* Roadmap Section */
+        #roadmap {
+            background: rgba(51, 51, 51, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        .roadmap-step {
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+            opacity: 0;
+            transition: opacity 1s ease, transform 1s ease;
+            transform: translateY(20px);
+        }
+        .roadmap-step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Flashy Pulsing Button */
+        .flashy-btn {
+            background-color: #ff4081;
+            color: #fff;
+            padding: 1rem 2rem;
+            margin-top: 2rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            animation: pulse 1.5s infinite;
+            box-shadow: 0 0 10px rgba(255, 64, 129, 0.8);
+        }
+        .flashy-btn:hover {
+            box-shadow: 0 0 20px rgba(255, 64, 129, 1);
+        }
+
+        /* Pulse Animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #904e95, #e96443);
+            padding: 1.5rem;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* Keyframe Animations */
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Star Background -->
+    <div id="star-background"></div>
+
+    <!-- Header Section -->
+    <header>
+        <h1>On The Wall Of The Cabal</h1>
+        <p>The Meme Coin that Takes You to the Top!</p>
+        <button class="flashy-btn" onclick="playClickSound()">Join the Cabal Now!</button>
+    </header>
+
+    <!-- Introduction Section -->
+    <section id="intro" class="section">
+        <h2>Welcome to the Revolution of Meme Coins!</h2>
+        <p>This is more than just a coin; it's a movement. Be part of something legendary, something that stands out "On The Wall of The Cabal."</p>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="section">
+        <h2>Roadmap</h2>
+        <div class="roadmap-step" onclick="playStepSound()">🚀 Launch the Coin and Establish Community</div>
+        <div class="roadmap-step" onclick="playStepSound()">🎉 Memes and Marketing Campaigns to Go Viral</div>
+        <div class="roadmap-step" onclick="playStepSound()">🌐 Partner with Top Influencers & Expand Network</div>
+        <div class="roadmap-step" onclick="playStepSound()">📈 Coin Listings and Market Boom!</div>
+        <div class="roadmap-step" onclick="playStepSound()">🏆 Become a Top Meme Coin Globally</div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Follow Us & Stay Updated</p>
+        <div class="socials">
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://telegram.org" target="_blank">Telegram</a>
+            <a href="https://discord.com" target="_blank">Discord</a>
+        </div>
+        <p>&copy; 2023 On The Wall Of The Cabal. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Interactive Elements and Stars Background -->
+    <script>
+        // Load sound effects
+        const clickSound = new Audio('https://example.com/click-sound.mp3'); // Replace with actual sound URL
+        const stepSound = new Audio('https://example.com/step-sound.mp3'); // Replace with actual sound URL
+
+        function playClickSound() {
+            clickSound.play();
+        }
+
+        function playStepSound() {
+            stepSound.play();
+        }
+
+        // Star Background
+        const starBackground = document.getElementById('star-background');
+        const starCount = 100;
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.animationDelay = `${Math.random() * 3}s`;
+            starBackground.appendChild(star);
+        }
+
+        // Scroll effect for roadmap items
+        const roadmapSteps = document.querySelectorAll('.roadmap-step');
+        window.addEventListener('scroll', () => {
+            const triggerBottom = window.innerHeight / 1.2;
+            roadmapSteps.forEach(step => {
+                const stepTop = step.getBoundingClientRect().top;
+                if(stepTop < triggerBottom) {
+                    step.classList.add('visible');
+                } else {
+                    step.classList.remove('visible');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
